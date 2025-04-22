@@ -22,13 +22,7 @@ public class CharacterMove : MonoBehaviour
     public float jumpForce;
     private float currentSpeed;
 
-    //camera/mouse settings
-    public float mouseSensitivity;
-    //ref to our camera
-    public Transform cameraTransform;
-    //tracking camera vertical and hortizontal movement
-    private float yrotation = 0;
-    private float xrotation = 0;
+ 
 
     //ground checking
     //layer for ground detection
@@ -106,29 +100,11 @@ public class CharacterMove : MonoBehaviour
             HandleStamina();
         }
     }
-    private void CameraLook()
-    {
-        //getting and assigning mouse inputs
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-        //when the mouse moves horizontally
-        //we rotate around the y axis to look left and right
-        yrotation += mouseX;
-        //rotate the player left/right on y axis rotation
-       // transform.rotation = Quaternion.Euler(0f, yrotation, 0);
-        Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0);
-
-        //decrease xRotation when moving mouse up so camera tilts up
-        //increase x rotation when moving cam down so cam tilts down
-        xrotation -= mouseY;
-        xrotation = Mathf.Clamp(xrotation, -90, 90); //prevents flipping
-
-        cameraTransform.localRotation = Quaternion.Euler(xrotation, 0, 0);
+ 
 
 
        
-        }
+        
         private void MovePlayer()
     {
         isGrounded = controller.isGrounded;

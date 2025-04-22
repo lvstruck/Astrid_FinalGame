@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &393779861168191072
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2820516039120102297}
-  m_Layer: 0
-  m_Name: offset
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2820516039120102297
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 393779861168191072}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.01, z: 0.91}
-  m_LocalScale: {x: 0.57574, y: 0.57574, z: 0.57574}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5688329381894602563}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &487079692849645899
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,8 +61,7 @@ Transform:
   m_LocalPosition: {x: 3.28, y: 0.78, z: 0.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2820516039120102297}
+  m_Children: []
   m_Father: {fileID: 3790437513001446043}
   m_LocalEulerAnglesHint: {x: 0, y: -82.5, z: 0}
 --- !u!20 &8834561684197290028
@@ -370,8 +338,6 @@ MonoBehaviour:
   isCouching: 0
   isGrounded: 0
   jumpForce: 5
-  mouseSensitivity: 0
-  cameraTransform: {fileID: 5688329381894602563}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
