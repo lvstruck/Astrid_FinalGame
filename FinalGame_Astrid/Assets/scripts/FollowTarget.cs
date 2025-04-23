@@ -14,13 +14,30 @@ public class FollowTarget : MonoBehaviour
     private float cinemachineTargetPitch;
     private float cinemachineTargetYaw;
 
+    private void LateUpdate()
+    {
+        CameraLogic();
+    }
+
     private void CameraLogic()
     {
         float mouseX = GetMouseInput("Mouse X");
         float mouseY = GetMouseInput("Mouse Y");
+
+        cinemachineTargetPitch = UpdateRotation(cinemachineTargetPitch, mouseY, bottomClamp, topClamp, true);
+        cinemachineTargetYaw = UpdateRotation(cinemachineTargetYaw, mouseX, float.MinValue, float.MaxValue, false);
+    }
+
+    private void ApplyRotation(float pitch, float yaw)
+    {
+        followTarget.rotation = Quaternion.Euler(pitch, yaw, followTarget.eulerAngles.z);
     }
 
     private float UpdateRotation(float currentRotation, float input, float min, float max, bool isXAxis)
+    {
+        currentRotation += isXAxis ? -input : input;
+        return Mathf.Clamp(currentRotation, min, max);
+    }
 
     private float GetMouseInput(string axis)
     {
