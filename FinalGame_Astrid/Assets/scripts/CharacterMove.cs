@@ -69,11 +69,7 @@ public class CharacterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        //zInput gets player's w or s input which is -1 or 1
-        float zInput = Input.GetAxis("Vertical");
-        //for character controller, you can just call velocity, this direvtly helps with movement 
-        velocity = transform.forward * zInput * currentSpeed + transform.right * horizontalInput * currentSpeed + Vector3.up * velocity.y;
+     
 
 
         // always call functions!!!!! ;-;
@@ -107,6 +103,15 @@ public class CharacterMove : MonoBehaviour
         
         private void MovePlayer()
     {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        //zInput gets player's w or s input which is -1 or 1
+        float zInput = Input.GetAxis("Vertical");
+        Vector3 move;
+        //for character controller, you can just call velocity, this direvtly helps with movement 
+        move = (transform.forward * zInput) + (transform.right * horizontalInput);
+
+
+
         isGrounded = controller.isGrounded;
 
         //if the player is on the ground reset gravity
@@ -135,9 +140,9 @@ public class CharacterMove : MonoBehaviour
         }
 
         //move player on the x and z
-        controller.Move(playerMovementInput * currentSpeed * Time.deltaTime);
+        controller.Move(move * currentSpeed * Time.deltaTime);
         //apply vertical movement (gravity and jumping)
-        controller.Move(velocity * Time.deltaTime);
+        //controller.Move(velocity * Time.deltaTime);
 
     }
 
