@@ -9,7 +9,7 @@ public class Door : MonoBehaviour
 
     //public AudioSource doorSound;
 
-
+    //empty game object attached to player to be "within reach"
     public bool inReach;
 
 
@@ -17,6 +17,7 @@ public class Door : MonoBehaviour
 
     void Start()
     {
+       //starting off with the door not in reach
         inReach = false;
     }
 
@@ -45,14 +46,14 @@ public class Door : MonoBehaviour
     void Update()
     {
 
-        if (inReach && Input.GetButtonDown("Interact"))
+        if (inReach && Input.GetButtonDown("Interact")) 
         {
             DoorOpens();
         }
 
         else
         {
-          //  DoorCloses();
+           DoorCloses();
         }
 
 
@@ -68,11 +69,11 @@ public class Door : MonoBehaviour
 
     }
 
-  //  void DoorCloses()
-   // {
-   //     Debug.Log("It Closes");
-    //    door.SetBool("Open", false);
-    //    door.SetBool("Closed", true);
-   // }
+    void DoorCloses()
+   {
+       Debug.Log("It Closes");
+       door.SetBool("Open", false);
+        door.SetBool("Closed", true);
+    }
 
 }
