@@ -84,7 +84,7 @@ public class CharacterMove : MonoBehaviour
             Crouch();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && isGrounded)
+       // if (Input.GetKeyDown(KeyCode.Q) && isGrounded)
         {
             isRunning = !isRunning;
 
@@ -112,7 +112,7 @@ public class CharacterMove : MonoBehaviour
 
 
 
-        isGrounded = controller.isGrounded;
+       // isGrounded = controller.isGrounded;
 
         //if the player is on the ground reset gravity
         if (isGrounded)
@@ -140,7 +140,7 @@ public class CharacterMove : MonoBehaviour
         }
 
         //move player on the x and z
-        controller.Move(move * currentSpeed * Time.deltaTime);
+       // controller.Move(move * currentSpeed * Time.deltaTime);
         //apply vertical movement (gravity and jumping)
         //controller.Move(velocity * Time.deltaTime);
 
