@@ -9,7 +9,6 @@ public class Door : MonoBehaviour
 
     //public AudioSource doorSound;
 
-    //empty game object attached to player to be "within reach"
     public bool inReach;
 
 
@@ -23,6 +22,7 @@ public class Door : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //empty game object attached to player to show when in range of objects
         if (other.gameObject.tag == "Reach")
         {
             inReach = true;
