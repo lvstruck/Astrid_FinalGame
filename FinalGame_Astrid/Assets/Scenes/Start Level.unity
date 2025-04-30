@@ -1622,6 +1622,7 @@ MonoBehaviour:
   - {fileID: 237625830}
   - {fileID: 530362921}
   enemyType: Hallway Experiments
+  speed: 10
   attackCooldown: 5
   attackDamage: 0
 --- !u!136 &242798232
@@ -3765,7 +3766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0034347333}
+  m_AnchoredPosition: {x: 0, y: 0.006831468}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &586902867
@@ -4685,13 +4686,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.75089294, y: 0.15222895, z: 0.06769644, w: 0.6390645}
+  m_LocalRotation: {x: -0.54573053, y: 0.58100164, z: -0.52019346, w: 0.30661732}
   m_LocalPosition: {x: 16, y: 5.9, z: -7.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -78.622, y: -568.095, z: -133.923}
+  m_LocalEulerAnglesHint: {x: 15.653, y: -613.66797, z: -98.17}
 --- !u!1 &708326509
 GameObject:
   m_ObjectHideFlags: 0
@@ -5670,6 +5671,7 @@ MonoBehaviour:
   - {fileID: 603345002}
   - {fileID: 254068606}
   enemyType: Hallway Experiments
+  speed: 10
   attackCooldown: 5
   attackDamage: 0
 --- !u!195 &789874294
@@ -7170,6 +7172,7 @@ MonoBehaviour:
   - {fileID: 667875902}
   - {fileID: 75670731}
   enemyType: Hallway Experiments
+  speed: 10
   attackCooldown: 5
   attackDamage: 0
 --- !u!195 &1019980045
@@ -9040,6 +9043,7 @@ MonoBehaviour:
   - {fileID: 258310487}
   - {fileID: 1707627391}
   enemyType: Hallway Experiments
+  speed: 10
   attackCooldown: 5
   attackDamage: 0
 --- !u!195 &1235991177
@@ -10449,7 +10453,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1705965983}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999975
+  m_Size: 0.99999726
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11492,6 +11496,7 @@ MonoBehaviour:
   - {fileID: 1825925430}
   - {fileID: 371364908}
   enemyType: Hallway Experiments
+  speed: 10
   attackCooldown: 5
   attackDamage: 0
 --- !u!136 &1583803665
@@ -12553,7 +12558,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795031808}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23184039, y: 0.011527225, z: -0.0018018931, w: 0.97268385}
+  m_LocalRotation: {x: 0.23184045, y: 0.011527225, z: -0.0018018936, w: 0.97268385}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13700,6 +13705,7 @@ MonoBehaviour:
   - {fileID: 1154815408}
   - {fileID: 766679940}
   enemyType: Hallway Experiments
+  speed: 10
   attackCooldown: 5
   attackDamage: 0
 --- !u!195 &2016499621

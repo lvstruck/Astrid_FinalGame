@@ -27,7 +27,7 @@ public class EnemyAI : MonoBehaviour
     //enemy stats loaded from json
     public string enemyType; // Name of the enemy in the JSON
     private int health;
-    private float speed;
+    public float speed;
     private float detectionRange;
     private float attackRange;
     public float attackCooldown;
@@ -168,9 +168,7 @@ public class EnemyAI : MonoBehaviour
 
     //when player is in range enemy follows them
     void ChaseBehavior()
-    {
-        //syd needs the if statement everyone else just needs {}
-        if (!agent.enabled || !agent.isOnNavMesh) return; //prevent errors when disabled
+    { 
 
         agent.SetDestination(player.position);
 
