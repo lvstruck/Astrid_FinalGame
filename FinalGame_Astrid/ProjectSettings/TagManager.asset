@@ -8,6 +8,7 @@ TagManager:
   - enemies
   - Reach
   - LevelExit
+  - walls
   layers:
   - Default
   - TransparentFX

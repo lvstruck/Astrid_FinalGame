@@ -6,9 +6,7 @@ public class readnotes : MonoBehaviour
 {
     public GameObject player;
     public GameObject noteUI;
-   // public GameObject hud;
-    //game object for inventory
-   // public GameObject inv;
+    public GameObject hud;
 
     //will appear when text is picked up
     public GameObject pickUpText;
@@ -21,8 +19,7 @@ public class readnotes : MonoBehaviour
     void Start()
     {
         noteUI.SetActive(false);
-      //  hud.SetActive(true);
-      //  inv.SetActive(true);
+        hud.SetActive(true);
         pickUpText.SetActive(false);
 
         inReach = false;
@@ -52,10 +49,10 @@ public class readnotes : MonoBehaviour
         {
             noteUI.SetActive(true);
            // pickUpSound.Play();
-           // hud.SetActive(false);
-          //  inv.SetActive(false);
+           hud.SetActive(false);
             player.GetComponent<CharacterController>().enabled = false;
             Cursor.visible = true;
+          //  player.GetComponent<InputController>().enabled = false;
             Cursor.lockState = CursorLockMode.None;
         }
     }
@@ -63,8 +60,7 @@ public class readnotes : MonoBehaviour
     public void ExitButton()
     {
         noteUI?.SetActive(false);
-      //  hud.SetActive(true);
-      //  inv.SetActive(true);
+         hud.SetActive(true);
         player.GetComponent<CharacterController>().enabled = true;
     }
 }
