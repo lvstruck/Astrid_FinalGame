@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject Player;
     public GameObject keypadOB;
     public GameObject hud;
    // public GameObject inv;
