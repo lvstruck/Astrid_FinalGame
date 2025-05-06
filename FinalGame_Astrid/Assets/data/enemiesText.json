@@ -1,18 +1,17 @@
 {
 
 
-    "enemiesList" :
-    [
+    "enemiesList": [
         {
             "name": "Hallway Experiments",
             "health": 70,
-            "speed": 10,
+            "speed": 5,
             "detectionRange": 10,
             "attackRange": 10,
             "attackCoolDown": 5
         },
         {
-            "name": "Delic2.0",
+            "name": "Boss",
             "health": 100,
             "speed": 20,
             "detectionRange": 20,

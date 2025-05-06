@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using StarterAssets;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityStandardAssets.Characters.ThirdPerson;
+using Unity.UI;
 
 public class Keypad : MonoBehaviour
 {
     public GameObject Player;
     public GameObject keypadOB;
     public GameObject hud;
-   // public GameObject inv;
+ 
 
 
     //want to be able to change password
@@ -61,8 +60,8 @@ public class Keypad : MonoBehaviour
     public void Exit()
     {
         keypadOB.SetActive(false);
-      //  inv.SetActive(true);
         hud.SetActive(true);
+        Player.GetComponent<ThirdPersonController>().enabled = true;
     }
     public void Update()
     {
@@ -76,9 +75,9 @@ public class Keypad : MonoBehaviour
         {
             //if active, turn off everything else on the screen
             hud.SetActive(false);
-          //  inv.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            Player.GetComponent<ThirdPersonController>().enabled = false;
         }
 
     }

@@ -19,6 +19,8 @@ public class OpenKeypad : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        Debug.Log("Near Keypad");
         if (other.gameObject.tag == "Reach")
         {
             inReach = true;
@@ -41,6 +43,10 @@ public class OpenKeypad : MonoBehaviour
         if (Input.GetButtonDown("Interact") && inReach)
         {
             keypadOB.SetActive(true);
+        }
+        else 
+        {
+           // Debug.Log("Cant Access");
         }
     }
 }

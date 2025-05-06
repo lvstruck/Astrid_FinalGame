@@ -1,19 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
+using System.IO;
+using UnityEngine.Rendering;
 
 public class EnemyAI : MonoBehaviour
 {
     //defines diff states and switches between them
-    public enum EnemyState { Idle, Patrol, Chase, Attack, Death }
+    public enum EnemyState { Idle, Patrol, Chase, Attack, Death}
     private EnemyState currentState;
 
     //references
-    public Transform player;
+    private Transform player;
     private NavMeshAgent agent;
-
+    
 
     //patrol settings
     public Transform[] patrolPoints;
@@ -26,8 +28,7 @@ public class EnemyAI : MonoBehaviour
 
     //enemy stats loaded from json
     public string enemyType; // Name of the enemy in the JSON
-    private int health;
-    public float speed;
+    private float speed;
     private float detectionRange;
     private float attackRange;
     public float attackCooldown;
@@ -35,9 +36,8 @@ public class EnemyAI : MonoBehaviour
 
 
     float lastAttackTime;
-    //int collisionCount = 0;
 
-
+    
 
     // Start is called before the first frame update
     void Start()
@@ -54,8 +54,7 @@ public class EnemyAI : MonoBehaviour
         currentState = EnemyState.Patrol; //start with patrolling
         MoveToNextPatrolPoint();
 
-
-        if (player == null)
+        if(player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
             /*if(player != null)
@@ -66,19 +65,19 @@ public class EnemyAI : MonoBehaviour
             {
                 //Debug.Log("no found player");
             }*/
-
-
+            
+            
         }
 
-
-
+        
+        
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log($"Enemy State: {currentState} | Distance to Player: {Vector3.Distance(transform.position, player.position)} | Speed: {agent.speed} | Has Path: {agent.hasPath}");
+       // Debug.Log($"Enemy State: {currentState} | Distance to Player: {Vector3.Distance(transform.position, player.position)} | Speed: {agent.speed} | Has Path: {agent.hasPath}");
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         //switch statement is like multiple choice descion maker in programming, instead of a bunch if else statements
@@ -86,29 +85,29 @@ public class EnemyAI : MonoBehaviour
 
         //switch statement determines what behavior the enemy should perform based on its currentState
         //switch statement checks current state of enemy and decides which behavior to execute
-        switch (currentState)
-        {
+        switch(currentState)
+        { 
             case EnemyState.Idle:
                 IdleBehavior();
                 //break makes sure program doesnt check other cases once a match is found
                 break;
 
-            //moves between waypoints if player is detected it switches to chase
+                //moves between waypoints if player is detected it switches to chase
             case EnemyState.Patrol:
                 PatrolBehavior();
                 //if enemy within detection will switch to chase
                 if (distanceToPlayer <= detectionRange) ChangeState(EnemyState.Chase);
                 break;
 
-            //moves toward player if close enough switches to attack
-            //if player escapes switches back to patrol
+                //moves toward player if close enough switches to attack
+                //if player escapes switches back to patrol
             case EnemyState.Chase:
                 ChaseBehavior();
-                if (distanceToPlayer <= attackRange) ChangeState(EnemyState.Attack);
-                else if (distanceToPlayer > detectionRange) ChangeState(EnemyState.Patrol);
+                if(distanceToPlayer <= attackRange) ChangeState(EnemyState.Attack);
+                else if(distanceToPlayer > detectionRange) ChangeState(EnemyState.Patrol);
                 break;
 
-            //attacks player if player moves away switches back to chase
+                //attacks player if player moves away switches back to chase
             case EnemyState.Attack:
                 AttackBehavior();
                 if (distanceToPlayer > attackRange)
@@ -147,7 +146,7 @@ public class EnemyAI : MonoBehaviour
         //if false means path has been fully calculated and enemy is actually moving towards target
         //ensures enemy only switches patrol points after reaching the target
         //if enmy is close enough to patrol point, .5 it moves to next one
-        if (!agent.pathPending && agent.remainingDistance < .5f)
+        if(!agent.pathPending && agent.remainingDistance < .5f)
         {
             MoveToNextPatrolPoint();
         }
@@ -169,10 +168,10 @@ public class EnemyAI : MonoBehaviour
     //when player is in range enemy follows them
     void ChaseBehavior()
     { 
-
+        
         agent.SetDestination(player.position);
-
-
+        
+        
     }
 
     //if player within attack range enemy attacks
@@ -187,7 +186,7 @@ public class EnemyAI : MonoBehaviour
             lastAttackTime = currentTime;
             //Debug.Log("Enemy attacked player");
 
-  
+            //  fpshealth.ChangeHealth(-attackDamage);
         }
         else
         {
@@ -196,45 +195,21 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-   // private void OnCollisionEnter(Collision collision)
-   // {
-
-      //  if (collision.gameObject.CompareTag("Bullet"))
-      //  {
-
-        //    collisionCount++;
-        //    Debug.Log("collision counts: " + collisionCount);
-         //   Debug.Log("Enemy hit");
-
-         //   if (collisionCount == 3)
-          //  {
-          //      //call in coroutine or here depending on which one ur using
-          //      agent.enabled = false;
-               //transform.rotation = Quaternion.Euler(0, 0, 90);
-                //transform.position = new Vector3(transform.position.x, 1, transform.position.z);
-          //      ChangeState(EnemyState.Death);
-          //      StartCoroutine(DeadEnemy());
-
-              
-          //  }
-       // }
-   // }
-
     private void LoadEnemyData(string enemyName)
     {
         //path to json file
         string path = Application.dataPath + "/Data/enemyData.json";
-        if (File.Exists(path)) //check if file exists
+        if(File.Exists(path)) //check if file exists
         {
             //read json file as text and store as a string
-            string json = File.ReadAllText(path);
+            string json = File.ReadAllText(path); 
             //convert json to c# objects
             //stores result
             EnemyDataBase enemyDB = JsonUtility.FromJson<EnemyDataBase>(json);
 
             //find the correct enemy in json
             //loops through all enemies
-            foreach (EnemyStats enemy in enemyDB.enemiesList)
+            foreach(EnemyStats enemy in enemyDB.enemiesList)
             {
                 Debug.Log($"Checking enemy: {enemy.name}");
 
@@ -247,7 +222,6 @@ public class EnemyAI : MonoBehaviour
                     detectionRange = enemy.detectionRange;
                     attackRange = enemy.attackRange;
                     attackCooldown = enemy.attackCoolDown;
-               
                     Debug.Log($"Loaded enemy: {enemy.name}");
                     return;
                 }
@@ -260,36 +234,4 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    IEnumerator DeadEnemy()
-    {
-        //disable agent.isStopped = true agenet.ennabled = false
-        //currentstate = enemystate.death
-
-
-        float duration = 2f; // How long the animation should take
-        float elapsedTime = 0f;
-
-        Vector3 startPos = transform.position;
-        Vector3 targetPos = new Vector3(startPos.x, startPos.y - .6f, startPos.z); // Move down slightly
-
-        Quaternion startRot = transform.rotation;
-        Quaternion targetRot = Quaternion.Euler(0, 0, 90); // Rotate on Z
-
-        while (elapsedTime < duration)
-        {
-            transform.position = Vector3.Lerp(startPos, targetPos, elapsedTime / duration);
-            transform.rotation = Quaternion.Lerp(startRot, targetRot, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-            yield return null; // Wait for the next frame
-        }
-
-        // Ensure the final position & rotation are set
-        transform.position = targetPos;
-        transform.rotation = targetRot;
-
-        yield return new WaitForSeconds(2f); // Pause before destroying
-        Destroy(gameObject); // Remove the enemy
-
-
-    }
 }

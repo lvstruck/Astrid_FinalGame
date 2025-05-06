@@ -62,7 +62,7 @@ public class Door : MonoBehaviour
     }
     void DoorOpens()
     {
-        Debug.Log("It Opens");
+       // Debug.Log("It Opens");
         door.SetBool("Open", true);
         door.SetBool("Closed", false);
         //doorSound.Play();
@@ -71,8 +71,8 @@ public class Door : MonoBehaviour
 
     void DoorCloses()
    {
-       Debug.Log("It Closes");
-       door.SetBool("Open", false);
+       //Debug.Log("It Closes");
+        door.SetBool("Open", false);
         door.SetBool("Closed", true);
     }
 
