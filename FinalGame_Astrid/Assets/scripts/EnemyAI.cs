@@ -198,7 +198,7 @@ public class EnemyAI : MonoBehaviour
     private void LoadEnemyData(string enemyName)
     {
         //path to json file
-        string path = Application.dataPath + "/Data/enemyData.json";
+        string path = Path.Combine(Application.streamingAssetsPath, "Data/Enemies.json");
         if(File.Exists(path)) //check if file exists
         {
             //read json file as text and store as a string
