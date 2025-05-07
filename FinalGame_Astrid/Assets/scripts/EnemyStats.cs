@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStats : MonoBehaviour
+[System.Serializable]
+public class EnemyStats 
 {
     //template for enemy states
     //will be used inside json file

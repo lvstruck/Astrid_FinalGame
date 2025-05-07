@@ -21,11 +21,6 @@ public class EnemyAI : MonoBehaviour
     public Transform[] patrolPoints;
     private int currentPatrolIndex;
 
-    //AI settings CHANGE THIS TO BELOW
-    /*public float detectionRange = 10f;
-    public float attackRange = 1.5f;
-    public float attackCoolDown = 2f;*/
-
     //enemy stats loaded from json
     public string enemyType; // Name of the enemy in the JSON
     private float speed;
@@ -186,7 +181,7 @@ public class EnemyAI : MonoBehaviour
             lastAttackTime = currentTime;
             //Debug.Log("Enemy attacked player");
 
-            //  fpshealth.ChangeHealth(-attackDamage);
+          
         }
         else
         {
@@ -198,23 +193,25 @@ public class EnemyAI : MonoBehaviour
     private void LoadEnemyData(string enemyName)
     {
         //path to json file
-        string path = Path.Combine(Application.streamingAssetsPath, "Data/Enemies.json");
+        string path = Application.dataPath + "/Data/enemiesText.json";
+        Debug.Log("Path" + path);
         if(File.Exists(path)) //check if file exists
         {
             //read json file as text and store as a string
             string json = File.ReadAllText(path); 
+            Debug.Log("json");
             //convert json to c# objects
             //stores result
-            EnemyDataBase enemyDB = JsonUtility.FromJson<EnemyDataBase>(json);
-
+            EnemyDataBase enemyStats = JsonUtility.FromJson<EnemyDataBase>(json);
+            Debug.Log("Enemy Start");
             //find the correct enemy in json
             //loops through all enemies
-            foreach(EnemyStats enemy in enemyDB.enemiesList)
+            foreach(EnemyStats enemy in enemyStats.enemiesList)
             {
                 Debug.Log($"Checking enemy: {enemy.name}");
 
                 //find the enemy that marches the requested name
-                if (enemy.name == enemyName)
+                if(enemy.name == enemyName)
                 {
                     //Debug.Log($"Enemy {enemy.name} found! Assigning stats...");
                     //health = enemy.health;

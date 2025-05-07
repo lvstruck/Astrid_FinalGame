@@ -23,12 +23,13 @@ public class OpenKeypad : MonoBehaviour
         Debug.Log("Near Keypad");
         if (other.gameObject.tag == "Reach")
         {
+            Debug.Log("In reach");
             inReach = true;
             keypadText.SetActive(true);
 
         }
     }
-    void OnTriggerExit(Collider other)
+    /*void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Reach")
         {
@@ -36,7 +37,7 @@ public class OpenKeypad : MonoBehaviour
             keypadText.SetActive(false);
 
         }
-    }
+    }*/
 
     private void Update()
     {
@@ -46,7 +47,7 @@ public class OpenKeypad : MonoBehaviour
         }
         else 
         {
-           // Debug.Log("Cant Access");
+           //Debug.Log("Cant Access");
         }
     }
 }
