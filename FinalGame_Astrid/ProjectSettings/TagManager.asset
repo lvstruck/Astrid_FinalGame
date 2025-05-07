@@ -10,6 +10,7 @@ TagManager:
   - LevelExit
   - walls
   - CinemachineTarget
+  - vent
   layers:
   - Default
   - TransparentFX

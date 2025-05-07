@@ -1,0 +1,60 @@
+# Wavefront MTL
+# Created by fragMOTION
+# http://www.fragmosoft.com
+
+newmtl sftex1.bmp
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+newmtl schrank_color.b
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+newmtl panel_color.bmp
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+newmtl wall2_color.bmp
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+newmtl pipewall_color.
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+newmtl wire1.tga
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+newmtl wall2_color2.bm
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
