@@ -65,7 +65,7 @@ public class Keypad : MonoBehaviour
     }
     public void Update()
     {
-        /*if (textOB.text == "Right")
+        if (textOB.text == "Right")
         {
             //ANI.SetBool("animate", true);
             Debug.Log("its open");
@@ -78,7 +78,7 @@ public class Keypad : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Player.GetComponent<ThirdPersonController>().enabled = false;
-        }*/
+        }
 
     }
 

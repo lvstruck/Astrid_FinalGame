@@ -6,7 +6,7 @@
             "speed": 10,
             "detectionRange": 10,
             "attackRange": 10,
-            "attackCooldown": 10,
+            "attackCooldown": 10
         }
 
 

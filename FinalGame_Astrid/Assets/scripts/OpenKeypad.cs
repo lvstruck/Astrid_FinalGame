@@ -29,7 +29,7 @@ public class OpenKeypad : MonoBehaviour
 
         }
     }
-    /*void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Reach")
         {
@@ -37,7 +37,7 @@ public class OpenKeypad : MonoBehaviour
             keypadText.SetActive(false);
 
         }
-    }*/
+    }
 
     private void Update()
     {

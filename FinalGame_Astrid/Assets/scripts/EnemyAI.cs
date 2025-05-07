@@ -23,9 +23,9 @@ public class EnemyAI : MonoBehaviour
 
     //enemy stats loaded from json
     public string enemyType; // Name of the enemy in the JSON
-    private float speed;
-    private float detectionRange;
-    private float attackRange;
+    public float speed;
+    public float detectionRange;
+    public float attackRange;
     public float attackCooldown;
     public float attackDamage;
 
@@ -72,7 +72,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // Debug.Log($"Enemy State: {currentState} | Distance to Player: {Vector3.Distance(transform.position, player.position)} | Speed: {agent.speed} | Has Path: {agent.hasPath}");
+        //Debug.Log($"Enemy State: {currentState} | Distance to Player: {Vector3.Distance(transform.position, player.position)} | Speed: {agent.speed} | Has Path: {agent.hasPath}");
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         //switch statement is like multiple choice descion maker in programming, instead of a bunch if else statements
@@ -199,17 +199,18 @@ public class EnemyAI : MonoBehaviour
         {
             //read json file as text and store as a string
             string json = File.ReadAllText(path); 
-            Debug.Log("json");
+            Debug.Log(json);
             //convert json to c# objects
             //stores result
             EnemyDataBase enemyStats = JsonUtility.FromJson<EnemyDataBase>(json);
+            Debug.Log("EL: " + enemyStats.enemiesList.Count);
             Debug.Log("Enemy Start");
             //find the correct enemy in json
             //loops through all enemies
             foreach(EnemyStats enemy in enemyStats.enemiesList)
             {
                 Debug.Log($"Checking enemy: {enemy.name}");
-
+                Debug.Log(enemy.name + ":" + enemyName);
                 //find the enemy that marches the requested name
                 if(enemy.name == enemyName)
                 {
