@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 {
     //defines diff states and switches between them
     public enum EnemyState { Idle, Patrol, Chase, Attack, Death}
-    private EnemyState currentState;
+    public EnemyState currentState;
 
     //references
     private Transform player;
@@ -194,25 +194,25 @@ public class EnemyAI : MonoBehaviour
     {
         //path to json file
         string path = Application.dataPath + "/Data/enemiesText.json";
-        Debug.Log("Path" + path);
-        if(File.Exists(path)) //check if file exists
+        //Debug.Log("Path" + path);
+        if (File.Exists(path)) //check if file exists
         {
             //read json file as text and store as a string
-            string json = File.ReadAllText(path); 
-            Debug.Log(json);
+            string json = File.ReadAllText(path);
+           // Debug.Log(json);
             //convert json to c# objects
             //stores result
             EnemyDataBase enemyStats = JsonUtility.FromJson<EnemyDataBase>(json);
-            Debug.Log("EL: " + enemyStats.enemiesList.Count);
-            Debug.Log("Enemy Start");
+           // Debug.Log("EL: " + enemyStats.enemiesList.Count);
+           // Debug.Log("Enemy Start");
             //find the correct enemy in json
             //loops through all enemies
-            foreach(EnemyStats enemy in enemyStats.enemiesList)
+            foreach (EnemyStats enemy in enemyStats.enemiesList)
             {
                 Debug.Log($"Checking enemy: {enemy.name}");
                 Debug.Log(enemy.name + ":" + enemyName);
                 //find the enemy that marches the requested name
-                if(enemy.name == enemyName)
+                if (enemy.name == enemyName)
                 {
                     //Debug.Log($"Enemy {enemy.name} found! Assigning stats...");
                     //health = enemy.health;
@@ -229,7 +229,7 @@ public class EnemyAI : MonoBehaviour
         else
         {
             Debug.Log("enemy json file not found");
-        }
+        } 
     }
 
 }

@@ -1,5 +1,5 @@
 {
-    "enemiesText": [
+    "enemiesList": [
         {
             "name": "HallwayExperiments",
             "health": 70,
@@ -7,11 +7,14 @@
             "detectionRange": 10,
             "attackRange": 10,
             "attackCooldown": 10
+        },
+        {
+            "name": "Boss",
+            "health": 100,
+            "speed": 5,
+            "detectionRange": 20,
+            "attackRange": 10,
+            "attackCooldown": 5
         }
-
-
-
     ]
-
-
 }
