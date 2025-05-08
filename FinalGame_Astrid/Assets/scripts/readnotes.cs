@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 
 public class readnotes : MonoBehaviour
@@ -37,30 +38,29 @@ public class readnotes : MonoBehaviour
     {
         if (other.gameObject.tag == "Reach")
         {
-            inReach = true;
-            pickUpText.SetActive(true);
+            inReach = false;
+            pickUpText.SetActive(false);
         }
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && inReach)
+        if (Input.GetButtonDown("Interact") && inReach)
         {
             noteUI.SetActive(true);
            // pickUpSound.Play();
            hud.SetActive(false);
-            player.GetComponent<CharacterController>().enabled = false;
+            player.GetComponent<ThirdPersonController>().enabled = false;
             Cursor.visible = true;
-          //  player.GetComponent<InputController>().enabled = false;
             Cursor.lockState = CursorLockMode.None;
         }
     }
 
     public void ExitButton()
     {
-        noteUI?.SetActive(false);
+         noteUI.SetActive(false);
          hud.SetActive(true);
-        player.GetComponent<CharacterController>().enabled = true;
+        player.GetComponent<ThirdPersonController>().enabled = true;
     }
 }
