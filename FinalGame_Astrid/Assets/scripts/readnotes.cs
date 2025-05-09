@@ -62,5 +62,8 @@ public class readnotes : MonoBehaviour
          noteUI.SetActive(false);
          hud.SetActive(true);
         player.GetComponent<ThirdPersonController>().enabled = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
+

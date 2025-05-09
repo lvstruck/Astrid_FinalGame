@@ -62,6 +62,8 @@ public class Keypad : MonoBehaviour
         keypadOB.SetActive(false);
         hud.SetActive(true);
         Player.GetComponent<ThirdPersonController>().enabled = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     public void Update()
     {

@@ -209,8 +209,8 @@ public class EnemyAI : MonoBehaviour
             //loops through all enemies
             foreach (EnemyStats enemy in enemyStats.enemiesList)
             {
-                Debug.Log($"Checking enemy: {enemy.name}");
-                Debug.Log(enemy.name + ":" + enemyName);
+               // Debug.Log($"Checking enemy: {enemy.name}");
+              //  Debug.Log(enemy.name + ":" + enemyName);
                 //find the enemy that marches the requested name
                 if (enemy.name == enemyName)
                 {
@@ -220,7 +220,7 @@ public class EnemyAI : MonoBehaviour
                     detectionRange = enemy.detectionRange;
                     attackRange = enemy.attackRange;
                     attackCooldown = enemy.attackCoolDown;
-                    Debug.Log($"Loaded enemy: {enemy.name}");
+                  //  Debug.Log($"Loaded enemy: {enemy.name}");
                     return;
                 }
             }
@@ -228,7 +228,7 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            Debug.Log("enemy json file not found");
+           // Debug.Log("enemy json file not found");
         } 
     }
 
