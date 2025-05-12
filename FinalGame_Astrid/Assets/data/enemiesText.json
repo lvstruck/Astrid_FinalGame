@@ -2,7 +2,7 @@
     "enemiesList": [
         {
             "name": "HallwayExperiments",
-            "health": 70,
+            "health": 50,
             "speed": 10,
             "detectionRange": 10,
             "attackRange": 10,
