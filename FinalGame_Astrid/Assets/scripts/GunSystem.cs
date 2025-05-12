@@ -94,7 +94,7 @@ public class GunSystem : MonoBehaviour
             nextTimeToFire = Time.time + 1f / fireRate;
             //anim.SetBool("shoot", true);
             Invoke("setboolback", .5f);
-            Shoot();
+          //  Shoot();
         }
 
 
@@ -135,7 +135,7 @@ public class GunSystem : MonoBehaviour
 
     //If Our Weapon Is A Gun:
 
-    void Shoot()
+    /*void Shoot()
     {
         RaycastHit hit;
         if (Physics.Raycast(out hit, range));
@@ -158,7 +158,7 @@ public class GunSystem : MonoBehaviour
             Destroy(impactOB, 2f);
 
         }
-     }
+     }*/
 
 
     //If Our Weapon Is Melee:

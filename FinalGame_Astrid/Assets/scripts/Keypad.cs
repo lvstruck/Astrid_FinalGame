@@ -16,9 +16,8 @@ public class Keypad : MonoBehaviour
     public TextMeshProUGUI textOB;
     public string answer = "12345";
 
-    public AudioSource button;
     public AudioSource correct;
-    public AudioSource wrong;
+    
 
 
     // Start is called before the first frame update
@@ -31,20 +30,20 @@ public class Keypad : MonoBehaviour
     {
         //add sounds after you fix it
         textOB.text += number.ToString();
-        //button.Play();
+       
     }
     public void Execute()
     {
         if (textOB.text == answer)
         {
-           // correct.Play();
+            correct.Play();
             textOB.text = "Right";
  
 
         }
         else
         {
-           // wrong.Play();
+          
             textOB.text = "Wrong";
         }
 
@@ -53,7 +52,7 @@ public class Keypad : MonoBehaviour
     {
         {
             textOB.text = "";
-            //button.Play();
+            
         }
     }
 
