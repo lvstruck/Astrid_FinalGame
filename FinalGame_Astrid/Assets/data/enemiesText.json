@@ -3,16 +3,16 @@
         {
             "name": "HallwayExperiments",
             "health": 50,
-            "speed": 10,
-            "detectionRange": 10,
-            "attackRange": 10,
+            "speed": 3,
+            "detectionRange": 7,
+            "attackRange": 6,
             "attackCooldown": 10
         },
         {
             "name": "Boss",
             "health": 100,
-            "speed": 5,
-            "detectionRange": 20,
+            "speed": 7,
+            "detectionRange": 10,
             "attackRange": 10,
             "attackCooldown": 5
         }

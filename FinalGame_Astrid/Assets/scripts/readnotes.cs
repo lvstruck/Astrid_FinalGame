@@ -12,7 +12,7 @@ public class readnotes : MonoBehaviour
     //will appear when text is picked up
     public GameObject pickUpText;
 
-   // public AudioSource pickUpSound;
+   public AudioSource pickUpSound;
 
     //to tell the distance between the note and player
     public bool inReach;
@@ -49,7 +49,7 @@ public class readnotes : MonoBehaviour
         if (Input.GetButtonDown("Interact") && inReach)
         {
             noteUI.SetActive(true);
-           // pickUpSound.Play();
+            pickUpSound.Play();
            hud.SetActive(false);
             player.GetComponent<ThirdPersonController>().enabled = false;
             Cursor.visible = true;

@@ -52,15 +52,6 @@ public class EnemyAI : MonoBehaviour
         if(player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
-            /*if(player != null)
-            {
-                //Debug.Log("player found in scene");
-            }
-            else
-            {
-                //Debug.Log("no found player");
-            }*/
-            
             
         }
 
