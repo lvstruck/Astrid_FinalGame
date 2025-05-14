@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
     //references
     private Transform player;
     private NavMeshAgent agent;
-    
+
 
     //patrol settings
     public Transform[] patrolPoints;
@@ -23,16 +23,19 @@ public class EnemyAI : MonoBehaviour
 
     //enemy stats loaded from json
     public string enemyType; // Name of the enemy in the JSON
+    public int enemyHealth;
     public float speed;
     public float detectionRange;
     public float attackRange;
     public float attackCooldown;
-    public float attackDamage;
+    public int attackDamage;
+
+    public static bool dead;
 
 
     float lastAttackTime;
+    int collisionCount = 0;
 
-    
 
     // Start is called before the first frame update
     void Start()
@@ -159,6 +162,39 @@ public class EnemyAI : MonoBehaviour
         
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            collisionCount++;
+            enemyHealth -= 1;
+
+            Debug.Log("bullet hit");
+
+            if (enemyHealth == 0)
+            {
+                agent.enabled = false;
+                //ChangeState(EnemyState.Death)
+                Destroy(gameObject);
+                dead = true;
+            }
+        }
+        if (other.gameObject.CompareTag("Melee"))
+        {
+            collisionCount++;
+            enemyHealth -= 1;
+
+            Debug.Log("melee hit");
+
+            if (enemyHealth == 0)
+            {
+                agent.enabled = false;
+                //ChangeState(EnemyState.Death)
+                Destroy(gameObject);
+                dead = true;
+            }
+        }
+    }
 
     //if player within attack range enemy attacks
     //uses cooldown to prevent spamming attacks
@@ -178,6 +214,12 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("attacking cooldown");
         }
+
+       /* if (enemyHealth > 0)
+        {
+            Health.TakeDamage(attackDamage);
+
+        }*/
 
     }
 
@@ -211,7 +253,8 @@ public class EnemyAI : MonoBehaviour
                     detectionRange = enemy.detectionRange;
                     attackRange = enemy.attackRange;
                     attackCooldown = enemy.attackCoolDown;
-                  //  Debug.Log($"Loaded enemy: {enemy.name}");
+                    attackDamage = enemy.attackDamage;
+                    //  Debug.Log($"Loaded enemy: {enemy.name}");
                     return;
                 }
             }

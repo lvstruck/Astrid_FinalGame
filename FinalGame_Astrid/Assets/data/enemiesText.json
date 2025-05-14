@@ -6,7 +6,8 @@
             "speed": 3,
             "detectionRange": 7,
             "attackRange": 6,
-            "attackCooldown": 10
+            "attackCooldown": 10,
+            "attackDamage": 5
         },
         {
             "name": "Boss",
@@ -14,7 +15,8 @@
             "speed": 7,
             "detectionRange": 10,
             "attackRange": 10,
-            "attackCooldown": 5
+            "attackCooldown": 5,
+            "attackDamage": 10
         }
     ]
 }

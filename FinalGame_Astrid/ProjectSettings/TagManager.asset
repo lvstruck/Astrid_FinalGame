@@ -11,6 +11,9 @@ TagManager:
   - walls
   - CinemachineTarget
   - vent
+  - Bullet
+  - melee
+  - Melee
   layers:
   - Default
   - TransparentFX

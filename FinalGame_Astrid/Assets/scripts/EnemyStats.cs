@@ -13,6 +13,7 @@ public class EnemyStats
     public float detectionRange;
     public float attackRange;
     public float attackCoolDown;
+    public int attackDamage;
 }
 [System.Serializable]
 public class EnemyDataBase

@@ -10,7 +10,7 @@ public class Dialogue : MonoBehaviour
     public GameObject Activator;
     public string dialogue = "Dialogue";
 
-    public float timer = 2f;
+    public float timer = 5f;
 
     public AudioSource computernoise;
 

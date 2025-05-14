@@ -13,6 +13,8 @@ public class Health : MonoBehaviour
 
     public bool inReach;
 
+    public static int playerHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(10);
         }
@@ -35,10 +37,11 @@ public class Health : MonoBehaviour
 
     }
 
-    void TakeDamage(int damage)
+      public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
         healthbar.SetHealth(currentHealth);
+      
     }
 }
